@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAG Chatbot</title>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        .chat-box { border: 1px solid #ccc; padding: 10px; width: 500px; }
+        .question { color: blue; }
+        .answer { color: green; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>RAG Chatbot</h1>
+    <div class="chat-box">
+        {% for entry in chat %}
+            <div class="question">You: {{ entry.question }}</div>
+            <div class="answer">Bot: {{ entry.answer }}</div>
+        {% endfor %}
+    </div>
+    <form method="post" action="/ask">
+        <input type="text" name="question" style="width:400px" required>
+        <button type="submit">Ask</button>
+    </form>
+</body>
+</html>
